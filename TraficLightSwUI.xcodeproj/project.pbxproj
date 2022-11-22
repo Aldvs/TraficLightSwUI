@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8489A8E7292D4BCB00DC2101 /* ChangeColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489A8E6292D4BCA00DC2101 /* ChangeColorButton.swift */; };
 		848EFB0827BD296B003E414E /* TraficLightSwUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848EFB0727BD296B003E414E /* TraficLightSwUIApp.swift */; };
 		848EFB0A27BD296B003E414E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848EFB0927BD296B003E414E /* ContentView.swift */; };
 		848EFB0C27BD296E003E414E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848EFB0B27BD296E003E414E /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8489A8E6292D4BCA00DC2101 /* ChangeColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorButton.swift; sourceTree = "<group>"; };
 		848EFB0427BD296B003E414E /* TraficLightSwUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraficLightSwUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848EFB0727BD296B003E414E /* TraficLightSwUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraficLightSwUIApp.swift; sourceTree = "<group>"; };
 		848EFB0927BD296B003E414E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				848EFB0927BD296B003E414E /* ContentView.swift */,
 				848EFB0B27BD296E003E414E /* Assets.xcassets */,
 				848EFB0D27BD296E003E414E /* Preview Content */,
+				8489A8E6292D4BCA00DC2101 /* ChangeColorButton.swift */,
 			);
 			path = TraficLightSwUI;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				848EFB0A27BD296B003E414E /* ContentView.swift in Sources */,
 				848EFB0827BD296B003E414E /* TraficLightSwUIApp.swift in Sources */,
 				848EFB1627BD5164003E414E /* ColorCircle.swift in Sources */,
+				8489A8E7292D4BCB00DC2101 /* ChangeColorButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
