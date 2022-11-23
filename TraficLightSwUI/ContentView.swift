@@ -13,53 +13,38 @@ enum CurrentLight {
 
 struct ContentView: View {
     
-    @State private var attributedString = try! AttributedString(
-        markdown: "START")
+    @State private var buttonTitle = "START"
     
     @State private var redOpacity: Double = 0.5
     @State private var yellowOpacity: Double = 0.5
     @State private var greenOpacity: Double = 0.5
     
     @State private var currentLight = CurrentLight.red
-    private let lightIsOn: Double = 1
-    private let lightIsOff: Double = 0.5
     
     var body: some View {
-        VStack{
-            ColorCircle(color: .red.opacity(redOpacity))
-                .padding()
-            ColorCircle(color: .yellow.opacity(yellowOpacity))
-                .padding()
-            ColorCircle(color: .green.opacity(greenOpacity))
-                .padding()
+        
+        VStack(spacing: 40){
+            ColorCircle(color: .red, opacity: redOpacity)
+            ColorCircle(color: .yellow, opacity: yellowOpacity)
+            ColorCircle(color: .green, opacity: greenOpacity)
+            
             Spacer()
             
-            Button(action: { getChangedLight() }) {
-                textSettings
+            ChangeColorButton(title: buttonTitle) {
+                if buttonTitle == "START" {
+                    buttonTitle = "NEXT"
+                }
+                getChangedLight()
             }
-            .shadow(radius: 30)
         }
         .padding()
     }
     
-    private var textSettings: some View {
-        Text(attributedString)
-            .font(.title)
-            .fontWeight(.bold)
-            .padding(.horizontal, 50.0)
-            .padding(.vertical, 20)
-            .background(Color.yellow)
-            .cornerRadius(20)
-            .foregroundColor(.black)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.white, lineWidth: 5)
-            )
-    }
-    
     private func getChangedLight() {
-        attributedString = "NEXT"
         
+        let lightIsOn: Double = 1
+        let lightIsOff: Double = 0.5
+
         switch currentLight {
         case .red:
             greenOpacity = lightIsOff
