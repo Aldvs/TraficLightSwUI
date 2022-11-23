@@ -8,25 +8,34 @@
 import SwiftUI
 
 enum CurrentLight {
-    case red, yellow, blue
+    case red, yellow, blue, off
 }
 
 struct ContentView: View {
     
     @State private var buttonTitle = "START"
+    @State private var currentLight = CurrentLight.off
     
-    @State private var redOpacity: Double = 0.5
-    @State private var yellowOpacity: Double = 0.5
-    @State private var greenOpacity: Double = 0.5
-    
-    @State private var currentLight = CurrentLight.red
+    private func getChangedLight() {
+        
+        switch currentLight {
+        case .red: currentLight = .yellow
+        case .yellow: currentLight = .blue
+        case .blue: currentLight = .red
+        case .off: currentLight = .red
+        }
+    }
+
+}
+
+extension ContentView {
     
     var body: some View {
         
         VStack(spacing: 40){
-            ColorCircle(color: .red, opacity: redOpacity)
-            ColorCircle(color: .yellow, opacity: yellowOpacity)
-            ColorCircle(color: .green, opacity: greenOpacity)
+            ColorCircle(color: .red, opacity: currentLight == .red ? 1 : 0.3)
+            ColorCircle(color: .yellow, opacity: currentLight == .yellow ? 1 : 0.3)
+            ColorCircle(color: .green, opacity: currentLight == .blue ? 1 : 0.3)
             
             Spacer()
             
@@ -38,27 +47,6 @@ struct ContentView: View {
             }
         }
         .padding()
-    }
-    
-    private func getChangedLight() {
-        
-        let lightIsOn: Double = 1
-        let lightIsOff: Double = 0.5
-
-        switch currentLight {
-        case .red:
-            greenOpacity = lightIsOff
-            redOpacity = lightIsOn
-            currentLight = .yellow
-        case .yellow:
-            redOpacity = lightIsOff
-            yellowOpacity = lightIsOn
-            currentLight = .blue
-        case .blue:
-            yellowOpacity = lightIsOff
-            greenOpacity = lightIsOn
-            currentLight = .red
-        }
     }
 }
 
