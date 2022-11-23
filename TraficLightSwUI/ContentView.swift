@@ -21,25 +21,6 @@ struct ContentView: View {
     
     @State private var currentLight = CurrentLight.red
     
-    var body: some View {
-        
-        VStack(spacing: 40){
-            ColorCircle(color: .red, opacity: redOpacity)
-            ColorCircle(color: .yellow, opacity: yellowOpacity)
-            ColorCircle(color: .green, opacity: greenOpacity)
-            
-            Spacer()
-            
-            ChangeColorButton(title: buttonTitle) {
-                if buttonTitle == "START" {
-                    buttonTitle = "NEXT"
-                }
-                getChangedLight()
-            }
-        }
-        .padding()
-    }
-    
     private func getChangedLight() {
         
         let lightIsOn: Double = 1
@@ -62,6 +43,27 @@ struct ContentView: View {
     }
 }
 
+extension ContentView {
+    
+    var body: some View {
+        
+        VStack(spacing: 40){
+            ColorCircle(color: .red, opacity: redOpacity)
+            ColorCircle(color: .yellow, opacity: yellowOpacity)
+            ColorCircle(color: .green, opacity: greenOpacity)
+            
+            Spacer()
+            
+            ChangeColorButton(title: buttonTitle) {
+                if buttonTitle == "START" {
+                    buttonTitle = "NEXT"
+                }
+                getChangedLight()
+            }
+        }
+        .padding()
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
