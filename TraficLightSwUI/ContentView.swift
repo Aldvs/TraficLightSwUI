@@ -48,7 +48,7 @@ extension ContentView {
     var body: some View {
         
         VStack(spacing: 40){
-            ColorCircle(color: .red, opacity: redOpacity)
+            ColorCircle(color: .black, opacity: redOpacity)
             ColorCircle(color: .yellow, opacity: yellowOpacity)
             ColorCircle(color: .green, opacity: greenOpacity)
             
